@@ -47,6 +47,9 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
+  const res = await fetch(`https://randomuser.me/api/`);
+  const data = await res.json();
+  console.log(data);
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
